@@ -1,0 +1,722 @@
+/* ==========================================================================
+   1. BASE STYLES & RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. FIXED NAVIGATION BAR
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo img {
+    height: 55px;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.saif {
+    color: #FFFFFF;
+}
+
+.zone {
+    color: #708238; /* Brand Signature Green */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 45px;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #708238;
+}
+
+.menu-toggle {
+    display: none;
+    color: #FFFFFF;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. HERO BANNER & TEXT OVERLAY
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #0A0A0A;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        rgba(10, 10, 10, 0.85) 0%, 
+        rgba(10, 10, 10, 0.4) 45%, 
+        rgba(0, 0, 0, 0) 70%
+    );
+    z-index: 2;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right -100%;  
+   z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 55%; 
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 10;
+    max-width: 580px;
+}
+
+.hero-tagline {
+    display: inline-block;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #708238;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-title {
+    color: #FFFFFF;
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    color: #CCCCCC;
+    font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 16px 36px;
+    background-color: #1E2A1E;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 1px solid #334433;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: #FFFFFF;
+    color: #0A0A0A;
+    border-color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   4. BENTO CONTENT SECTION 
+   ========================================================================== */
+/* ==========================================================================
+   4. ULTRA-PREMIUM STRATEGIC BLUEPRINT SECTION STYLES
+   ========================================================================== */
+.blueprint-section {
+    padding: 140px 8%;
+    background-color: #0A0A0A;
+    border-top: 1px solid #121212;
+    display: flex;
+    justify-content: center;
+}
+
+.blueprint-container {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Perfect visual balance ratio */
+    gap: 90px;
+    align-items: start;
+}
+
+/* Left Panel: Bold Typography Stays Sticky On Scroll */
+.blueprint-left-panel {
+    position: sticky;
+    top: 120px;
+    height: max-content;
+}
+
+.blueprint-tagline {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #708238; /* SAIF ZONE Signature Green */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.blueprint-main-title {
+    color: #FFFFFF;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.blueprint-lead-text {
+    color: #888888;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+.blueprint-action-link {
+    color: #708238;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.blueprint-action-link:hover {
+    color: #FFFFFF;
+    transform: translateX(5px);
+}
+
+/* Right Panel: Clean Strategy Blocks Stacked Flawlessly */
+.blueprint-right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.advice-card {
+    background: #111111;
+    border: 1px solid #161A16;
+    border-radius: 6px;
+    padding: 45px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advice-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.advice-number {
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #708238;
+}
+
+.advice-category {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #555555;
+}
+
+.advice-card h3 {
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.advice-card p {
+    color: #AAAAAA;
+    line-height: 1.6;
+    font-size: 0.98rem;
+}
+
+/* Luxury Interactive Hover State */
+.advice-card:hover {
+    border-color: #708238;
+    background: #131713;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   MOBILE QUERY INTEGRATION 
+   ========================================================================== */
+@media (max-width: 900px) {
+    .blueprint-container {
+        grid-template-columns: 1fr; /* Collapses layout smoothly to a vertical line on mobile phone screens */
+        gap: 50px;
+    }
+    .blueprint-left-panel {
+        position: relative;
+        top: 0;
+    }
+    .advice-card {
+        padding: 35px 25px;
+    }
+}
+
+/* ==========================================================================
+   5. ULTRA-PREMIUM ACCORDION (TIPS & TRICKS) SECTION
+   ========================================================================== */
+.hacks-section {
+    padding: 140px 8%;
+    background-color: #0A0A0A;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #151515;
+}
+
+.hacks-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+}
+
+.hacks-header {
+    position: sticky;
+    top: 120px;
+    height: max-content;
+}
+
+.hacks-tagline {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #708238;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hacks-main-title {
+    color: #FFFFFF;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.hacks-subtitle {
+    color: #888888;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.accordion-container {
+    border-top: 1px solid #1A1A1A;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #1A1A1A;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 35px 20px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.row-num {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #444444;
+    margin-right: 40px;
+    font-family: monospace;
+    transition: color 0.3s ease;
+}
+
+.row-title {
+    color: #DDDDDD;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.row-icon {
+    margin-left: auto;
+    font-size: 1.6rem;
+    color: #444444;
+    font-weight: 300;
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #0E120E;
+}
+
+.accordion-header:hover .row-title {
+    color: #FFFFFF;
+    transform: translateX(5px);
+}
+
+.accordion-header:hover .row-icon,
+.accordion-header:hover .row-num {
+    color: #708238;
+}
+
+.accordion-item.active {
+    background-color: #111411;
+    border-color: #222C22;
+}
+
+.accordion-item.active .row-title {
+    color: #708238;
+}
+
+.accordion-item.active .row-num {
+    color: #708238;
+}
+
+.accordion-item.active .row-icon {
+    transform: rotate(45deg);
+    color: #708238;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-inner {
+    padding: 0px 20px 40px 80px;
+}
+
+.content-inner p {
+    color: #BBBBBB;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   6. LUXURY LAYOUT ENTRY SCROLL ANIMATIONS
+   ========================================================================== */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-item.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   8. LUXURY INTERACTIVE CALCULATOR SECTION STYLES
+   ========================================================================== */
+.calculator-section {
+    padding: 120px 8%;
+    background-color: #0A0A0A;
+    border-top: 1px solid #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calc-section-header {
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* Luxury Workspace Action Button */
+.toggle-calc-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 32px;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border: 1px solid #708238; /* Signature Green Border */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-calc-btn:hover {
+    background-color: #708238;
+    box-shadow: 0 0 15px rgba(112, 130, 56, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 🌟 Smooth Open/Close Panel System Transition */
+.calc-wrapper.hidden-calc {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    margin-top: 0;
+    transition: max-height 0.5s ease-out, opacity 0.4s ease-out, margin-top 0.4s;
+}
+
+.calc-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-height: 1200px; /* High boundary allowance for internal elements */
+    opacity: 1;
+    margin-top: 40px;
+    transition: max-height 0.6s ease-in, opacity 0.5s ease-in, margin-top 0.5s;
+}
+
+/* Keep the rest of your inner slider, selector, and card styles completely intact inside style.css */
+.sliders-container { display: flex; flex-direction: column; gap: 30px; }
+.slider-group { display: flex; flex-direction: column; gap: 12px; }
+.slider-label-row { display: flex; justify-content: space-between; align-items: center; color: #DDDDDD; font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.slider-output-val { color: #708238; font-weight: 700; font-family: monospace; font-size: 1.1rem; }
+.luxury-range { -webkit-appearance: none; width: 100%; height: 6px; background: #1A1A1A; border-radius: 3px; outline: none; }
+.luxury-range::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #708238; cursor: pointer; box-shadow: 0 0 10px rgba(112, 130, 56, 0.6); transition: transform 0.2s ease; }
+.luxury-range::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.luxury-select { width: 100%; padding: 14px 18px; background-color: #111111; border: 1px solid #222222; border-radius: 4px; color: #FFFFFF; font-size: 0.95rem; outline: none; cursor: pointer; transition: border-color 0.3s ease; }
+.luxury-select:focus { border-color: #708238; }
+.calc-display-panel { background: #111111; border: 1px solid #1A1A1A; padding: 50px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+.calories-main-card { text-align: center; padding-bottom: 35px; border-bottom: 1px solid #1A1A1A; margin-bottom: 35px; }
+.card-metric-label { font-size: 0.8rem; letter-spacing: 2px; color: #666666; font-weight: 700; }
+.main-cal-display { font-size: 4rem; font-weight: 900; color: #FFFFFF; line-height: 1; margin-top: 10px; }
+.main-cal-display .cal-unit { font-size: 1.2rem; color: #708238; font-weight: 700; }
+.macros-grid-panel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.macro-metric-card { background: #0A0A0A; border: 1px solid #151515; padding: 20px 15px; border-radius: 4px; text-align: center; transition: border-color 0.3s ease; }
+.macro-metric-card:hover { border-color: #222C22; }
+.macro-tag { font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; color: #444444; margin-bottom: 8px; }
+.macro-weight-display { font-size: 1.6rem; font-weight: 700; color: #FFFFFF; margin-bottom: 5px; }
+.macro-label { font-size: 0.7rem; color: #555555; display: block; line-height: 1.2; }
+
+
+/* ==========================================================================
+   7. MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+        background: #0A0A0A; 
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+    }
+    
+    .logo img {
+        height: 35px; 
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .menu-toggle {
+        display: block !important;
+        color: #FFFFFF;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .nav-links {
+        display: none; 
+    }
+
+    .nav-links.active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #0A0A0A;
+        padding: 30px 20px;
+        gap: 20px;
+        border-bottom: 2px solid #708238;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .nav-links.active li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active li a {
+        display: block;
+        font-size: 1.3rem;
+        padding: 10px 0;
+    }
+
+    .hero::after {
+        background: linear-gradient(
+            to bottom, 
+            rgba(10, 10, 10, 0.4) 0%, 
+            rgba(10, 10, 10, 0.75) 50%,
+            rgba(10, 10, 10, 0.95) 100%
+        );
+    }
+
+    .hero-image {
+        object-position: 82% 0% !important; 
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+    }
+    
+    .hero-content {
+        left: 6%;
+        right: 6%;
+        max-width: 88%;
+        top: 65%; 
+        transform: translateY(-40%);
+    }
+
+    .hero-title {
+        font-size: 2.2rem; 
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-btn {
+        width: 100%; 
+        text-align: center;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    .bento-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .bento-card.large {
+        grid-column: span 1;
+    }
+
+    .hacks-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hacks-header {
+        position: relative;
+        top: 0;
+    }
+    
+    .content-inner {
+        padding: 0px 10px 30px 40px;
+    }
+}
+
+    /* Pasted inside your existing media query block at the bottom */
+    .calculator-section {
+        padding: 80px 6%;
+    }
+
+    .calc-wrapper {
+        grid-template-columns: 1fr; /* Stacks sliders above data panel on mobile screen space */
+        gap: 40px;
+    }
+
+    .calc-display-panel {
+        padding: 30px 20px;
+    }
+
+    .main-cal-display {
+        font-size: 3rem;
+    }
+
+    .macros-grid-panel {
+        grid-template-columns: 1fr; /* Stacks macro metrics vertically on phones */
+        gap: 12px;
+    }
+
